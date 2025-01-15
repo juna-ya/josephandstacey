@@ -1149,10 +1149,12 @@ body.scrolled .scrolling_text {
 
     .best .swiper-button-prev {
         left: 15px;
+        background-image: url(../img/이전.jpg);
     }
 
     .best .swiper-button-next {
         right: 15px;
+        background-image: url(../img/다음.jpg);
     }
 
     .best h2 {
