@@ -62,6 +62,18 @@
     font-weight: 700;
     font-style: normal;
 }
+.dm-serif-text-regular {
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+.dm-serif-text-regular-italic {
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
 
 * {
     margin: 0;
@@ -95,21 +107,24 @@ body.scrolled .scrolling_text {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
-    background-color: white;
+    z-index: 1000; /* 메인 비주얼 위에 올리기 위해 높은 z-index 값 설정 */
     width: 100%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 60px; /* 헤더 높이 */
+    /* padding: 0 20px; */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: none; /* 그림자 없음 */
+    
 }
-
 #header .header_wrap {
     width: 100%;
-    height: 100%;
+   /*  height: 100%; */
     display: flex;
     justify-content: space-between;
     align-items: center;
     /*  margin: 0 auto; */
     padding: 18px;
-    position: relative;
+    /* position: relative; */
+    transition: transform 0.5s ease-in-out;
 }
 
 #header .header_wrap .nav {
@@ -210,6 +225,7 @@ body.scrolled .scrolling_text {
 .header_wrap .tnb ul li select {
     border: 0;
     cursor: pointer;
+    background-color: transparent;
 }
 
 #header:hover~.main_visual {
@@ -235,10 +251,11 @@ body.scrolled .scrolling_text {
 .text_content {
     display: flex;
     /* 이거 적용하니깐 잘됨 */
-
+    flex: 1;
 }
 
 .text_content ul {
+
     /*  display: inline-block; */
     margin-right: 500px;
     padding-right: 10px;
@@ -249,6 +266,8 @@ body.scrolled .scrolling_text {
 .text_content ul li {
     font-family: 'SpoqaHanSansNeo-Light';
     white-space: nowrap;
+
+
 }
 
 @keyframes scroll-left {
@@ -260,8 +279,20 @@ body.scrolled .scrolling_text {
         transform: translateX(-100%);
     }
 }
-
-
+.fixed-header {
+    background-color: #fff;  /* 헤더 배경색을 흰색으로 설정 (원하는 색으로 변경 가능) */
+    position: fixed;         /* 고정된 위치로 설정 */
+    top: -80px;
+    left: 0;
+    right: 0;
+    z-index: 999;     
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease-in-out; /* 부드럽게 이동 */   
+    width: 100%;    
+}
+.scrolling_text.hidden {
+    display: none; /* 숨겨질 때 */
+}
 /* 메인비주얼 */
 .main_visual {
     overflow: hidden;
@@ -269,7 +300,7 @@ body.scrolled .scrolling_text {
     height: 100vh;
     position: relative;
     transition: filter 0.3s ease,
-        background-color 0.3 ease;
+    background-color 0.3 ease;
 }
 
 .mySwiper {
@@ -314,8 +345,11 @@ body.scrolled .scrolling_text {
 .Event .event_wrap .item img {
     width: 100%;
     display: block;
+    transition: opacity 0.3s ease; /* 이미지 투명도 부드럽게 변화 */
 }
-
+.Event .event_wrap .item:hover img {
+    opacity: 0.8; /* 마우스를 올렸을 때 이미지가 80% 투명 */
+}
 .Event .event_wrap:nth-child(1) .item img {
     height: 1000px;
     object-fit: cover;
@@ -387,12 +421,57 @@ body.scrolled .scrolling_text {
     height: 100%;
     object-fit: cover;
     /* transition: transform 0.3s ease; */
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    
 }
-
+.best .swiper-slide .image .hover_icons {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+} 
+.best .swiper-slide .image .hover_icons .icon {
+    width: 45px;
+    height: 45px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s ease;
+    background: #ffffff6e;
+}
+.best .swiper-slide .image .hover_icons .icon img {
+    width: 30px; /* SVG 가로 크기 */
+    height: 30px; /* SVG 세로 크기 */
+}
+.best .swiper-slide .image .hover_icons .icon:hover {
+    background: #ebc7c7;
+}
+.best .swiper-slide .image .hover_icons {
+    position: absolute;
+    bottom: 30px; /* 하단에서 20px 위로 */
+    left: 50%;
+    transform: translateX(-50%); /* 중앙 정렬 */
+    display: flex;
+    gap: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.9s ease, visibility 0.9s ease;
+}
+.best .swiper-slide .image:hover .hover_icons {
+    opacity: 1;
+    visibility: visible;
+}
 .best .swiper-slide .image a:hover img {
     /* transform: scale(1.1); */
-    opacity: 0.9;
+    opacity: 0.85;
 }
 
 .best .swiper-slide img:hover {
@@ -427,7 +506,7 @@ body.scrolled .scrolling_text {
     /* bottom: -30px;
     left: 0; */
     width: 100%;
-    height: 5px;
+    height: 1px;
     background-color: #eee;
 }
 
@@ -445,24 +524,24 @@ body.scrolled .scrolling_text {
 .best .swiper-button-next {
     width: 45px;
     height: 45px;
-    border: 1px solid #777;
+    border: 1px solid #cac5c555;
     background-color: #fff;
     background-position: center;
     background-repeat: no-repeat;
     margin-top: -58px;
-    background-image: url('/img/다음.jpg');
+    background-image: url('../img/다음.jpg');
     right: -58px;
 }
 
 .best .swiper-button-prev {
     width: 45px;
     height: 45px;
-    border: 1px solid #777;
+    border: 1px solid #cac5c555;
     background-color: #fff;
     background-position: center;
     background-repeat: no-repeat;
     margin-top: -58px;
-    background-image: url('/img/이전.jpg');
+    background-image: url('../img/이전.jpg');
     left: -58px;
 }
 
@@ -499,6 +578,7 @@ body.scrolled .scrolling_text {
     cursor: pointer;
     border-radius: 0;
     height: 100%;
+    /* width: 100%; */
     position: relative;
     left: 0;
     top: 0;
@@ -522,6 +602,11 @@ body.scrolled .scrolling_text {
     height: 800px;
 }
 
+/* .mdpick .md_wrap .md_left img {
+    width: 100%;
+    height: 800px;
+    object-fit: cover;
+} */
 .mdpick .md_wrap .md_left video {
     width: 100%;
     height: 100%;
@@ -549,8 +634,7 @@ body.scrolled .scrolling_text {
     width: 440px;
     height: 440px;
     object-fit: cover;
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out,
-    border-radius 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
     border-radius: 0%;
 
 
@@ -571,6 +655,7 @@ body.scrolled .scrolling_text {
     font-size: 30px;
     font-family: 'SpoqaHanSansNeo-Bold';
     opacity: 0;
+    /* 초기 상태에서는 텍스트가 보이지 않도록 */
     transition: opacity 0.3s ease-in-out;
     text-align: center;
     width: 100%;
@@ -596,14 +681,15 @@ body.scrolled .scrolling_text {
 .mdpick .md_wrap .md_right .more a {
     display: inline-flex;
     align-items: center;
-    color: #888;
-    font-size: 18px;
+    color: #333;
+    font-size: 15px;
     font-family: 'SpoqaHanSansNeo-Regular';
 }
 
 .mdpick .md_wrap .md_right .more a img {
     height: 16px;
     margin-left: 3px;
+
 }
 
 .mdpick .md_wrap .md_right .md-swiper {
@@ -654,8 +740,14 @@ body.scrolled .scrolling_text {
 .collection {
     width: 100%;
     margin-top: 240px;
+    /* opacity: 0; */ /* 초기 상태에서 보이지 않게 설정 */
+    transform: translateY(50px); /* 초기 위치를 아래로 설정 */
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
 }
-
+.collection.visible {
+    opacity: 1; /* 화면에 보일 때 opacity 1로 설정 */
+    transform: translateY(0); /* 화면에 보일 때 아래에서 위로 올라오는 효과 */
+}
 .collection h2 {
     font-size: 48px;
     text-align: center;
@@ -687,7 +779,7 @@ body.scrolled .scrolling_text {
 }
 
 .collection .item_wrap .item:hover img {
-    transform: scale(1.1);
+    /* transform: scale(1.1); */
 }
 
 .collection .item_wrap .item .text {
@@ -710,6 +802,27 @@ body.scrolled .scrolling_text {
 
 
 /* Aboutus */
+.Aboutus .video_wrap{
+    position: relative;
+}
+#playPauseButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 2;  /* 비디오 위에 버튼이 나타나도록 설정 */
+}
+
+#playPauseButton:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
 .Aboutus .inner {
     text-align: center;
     margin-top: 190px;
@@ -718,7 +831,7 @@ body.scrolled .scrolling_text {
 .Aboutus .inner video {
     display: block;
     margin: 0 auto;
-    width: 100%;
+    width: 80%;
     height: 100%;
     object-fit: cover;
 }
@@ -759,7 +872,6 @@ body.scrolled .scrolling_text {
 .Aboutus .inner p {
     color: #8a8e83;
     font-size: 20px;
-    text-decoration: underline;
     margin-top: 70px;
     font-weight: 200;
     font-family: 'SpoqaHanSansNeo-Thin';
@@ -956,19 +1068,31 @@ body.scrolled .scrolling_text {
 
 .top_button img {
     width: 60px;
+    /* 이미지 크기 */
     height: auto;
+    /* 비율 유지 */
 }
 
 .best .best-swiper {
     width: 100%;
 }
 
+@media (min-width: 1024px) { /* 데스크탑 해상도를 위한 미디어 쿼리 */
+    #header .header_wrap {
+        background-color: transparent !important; /* 배경을 투명으로 설정 */
+    }
+}
 
+
+/* 모바일, 태블릿 스타일 */
 @media screen and (max-width: 960px) {
     .header_wrap {
         display: block;
+        /* 모바일에서는 세로로 배치 */
         padding: 10px;
     }
+
+    /* 메뉴 아이콘 */
     .menu_icon {
         font-size: 30px;
         color: #333;
@@ -979,16 +1103,21 @@ body.scrolled .scrolling_text {
         position: fixed;
         top: 0;
         left: -450px;
+        /* 메뉴 숨김 상태 */
         width: 450px;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.7);
+        /* 투명 배경 (좀 더 어두운 배경으로) */
         transition: left 0.3s ease;
+        /* 부드러운 애니메이션 */
         z-index: 9999;
         padding-top: 60px;
+        /* 메뉴 내용과 상단 간격 */
     }
 
     #menu.open {
         left: 0;
+        /* 메뉴 보이기 */
     }
 
     .gnb {
@@ -1001,29 +1130,36 @@ body.scrolled .scrolling_text {
         margin: 10px 0;
     }
 
+    /* depth01 항목 보이게 하기 */
     .gnb .depth01 {
         color: #fff;
+        /* 기본 텍스트 색상 (흰색으로 설정) */
         font-size: 18px;
         text-decoration: none;
         display: block;
         padding: 15px 20px;
     }
 
+    /* depth02 서브 메뉴 */
     .gnb .depth02 {
         display: none;
         margin-left: 20px;
         list-style: none;
     }
 
+    /* 서브 메뉴 보이도록 하기 */
     .gnb li.open .depth02 {
         display: block;
     }
 
     .gnb .depth01:hover {
         background-color: #f0f0f0;
+        /* 호버 시 배경색 */
         color: #000;
+        /* 호버 시 텍스트 색상 */
     }
 
+    /* 메뉴 아이템이 보이도록 기본 display: block 설정 */
     #menu.open .gnb .depth01 {
         display: block;
     }
@@ -1041,7 +1177,7 @@ body.scrolled .scrolling_text {
 
     }
     .cart-icon {
-        content: url('../img/cart_m.jpg');
+        content: url('../img/cart_m.svg');
     }
     #header .header_wrap {
         justify-content: center;
@@ -1055,8 +1191,8 @@ body.scrolled .scrolling_text {
     #header .header_wrap .tnb {
         position: absolute;
         right: 15px;
-        top: 20px;
-        height: 24px;
+        /* top: 20px;
+        height: 24px; */
     }
 
     #header .header_wrap .tnb ul li {
@@ -1150,6 +1286,7 @@ body.scrolled .scrolling_text {
     .best .swiper-button-prev {
         left: 15px;
         background-image: url(../img/이전.jpg);
+
     }
 
     .best .swiper-button-next {
@@ -1339,7 +1476,7 @@ body.scrolled .scrolling_text {
     }
 
     .cart-icon {
-        content: url('../img/cart_m.jpg');
+        content: url('../img/cart_m.svg');
     }
     .best {
         margin-top: 50px;
@@ -1419,7 +1556,7 @@ body.scrolled .scrolling_text {
     }
 
     .cart-icon {
-        content: url('img/cart_m.jpg');
+        content: url('../img/cart_m.jpg');
     }
 
     #header {
@@ -1504,24 +1641,30 @@ body.scrolled .scrolling_text {
 
     .Event .event_wrap .item img {
         height: auto;
+        /* 이미지 높이 자동 조정 */
         object-fit: cover;
+        /* 이미지 비율을 유지하면서 꽉 채우기 */
     }
 
     .Event .event_wrap .item .inner .text {
         padding: 20px;
+        /* 모바일에서 텍스트 패딩 줄이기 */
     }
 
     .Event .event_wrap .item .inner .text span {
         font-size: 14px;
+        /* 모바일에서 글자 크기 줄이기 */
         margin-bottom: 10px;
     }
 
     .Event .event_wrap .item .inner .text p {
         font-size: 16px;
+        /* 모바일에서 글자 크기 줄이기 */
     }
 
     .Event .event_wrap .item .inner .text a {
         font-size: 16px;
+        /* 모바일에서 글자 크기 줄이기 */
     }
 
     .Event .event_wrap:nth-child(2) .item:nth-child(1),
