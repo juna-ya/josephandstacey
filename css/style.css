@@ -99,7 +99,7 @@ body.scrolled .scrolling_text {
     transform: translateY(-100%);
 }
 
-/* 헤더 */
+/********** header **********/
 #header {
     position: fixed;
     top: 0;
@@ -261,7 +261,7 @@ body.scrolled .scrolling_text {
     display: none;
 }
 
-/* .main_visual */
+/********** .main_visual **********/
 .main_visual {
     overflow: hidden;
     width: 100%;
@@ -279,8 +279,20 @@ body.scrolled .scrolling_text {
     height: 100%;
     object-fit: cover;
 }
-
-/* .Event */
+.swiper-pagination-bullet {
+    background: transparent;
+    border: 1px solid #000;
+    width: 12px;
+    height: 12px;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+}
+.swiper-pagination-bullet-active {
+    background: #ffffffc9; 
+    border: 1.5px solid #000000;
+    transform: scale(1.2);
+}
+/********** .Event **********/
 .Event {
     margin-top: 100px;
 }
@@ -336,7 +348,7 @@ body.scrolled .scrolling_text {
     font-size: 32px;
     font-family: 'Pretendard-SemiBold';
 }
-/* .best */
+/********** .best **********/
 .best {
     margin-top: 200px;
 }
@@ -514,7 +526,7 @@ body.scrolled .scrolling_text {
     top: 0;
 }
 
-/* mdpick */
+/********** mdpick **********/
 .mdpick {
     margin-top: 300px;
 }
@@ -630,7 +642,7 @@ body.scrolled .scrolling_text {
     font-family: 'SpoqaHanSansNeo-Medium';
 }
 
-/* collection */
+/********** collection **********/
 .collection {
     width: 100%;
     margin-top: 240px;
@@ -712,7 +724,7 @@ body.scrolled .scrolling_text {
     transform: translate(-50%, -50%);
 }
 
-/* Aboutus */
+/********** Aboutus **********/
 .Aboutus .video_wrap {
     position: relative;
 }
@@ -776,7 +788,7 @@ body.scrolled .scrolling_text {
     font-family: 'SpoqaHanSansNeo-Thin';
 }
 
-/* Instagram */
+/********** Instagram **********/
 .Instagram {
     margin-top: 200px;
 }
@@ -827,7 +839,7 @@ body.scrolled .scrolling_text {
     opacity: 1;
 }
 
-/* #footer */
+/********** #footer **********/
 #footer {
     position: relative;
 }
