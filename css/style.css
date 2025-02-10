@@ -1477,13 +1477,15 @@ body.scrolled .scrolling_text {
     #header .header_wrap {
         height: 30px;
         justify-content: center;
-        padding: 18px 15px;
+        padding: 30px 15px;
     }
 
     #header .logo {
         display: none;
     }
-
+    .menu_icon {
+        font-size: 20px;
+    }
     .main_visual {
         width: 100%;
     }
