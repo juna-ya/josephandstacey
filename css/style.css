@@ -1506,7 +1506,7 @@ body.scrolled .scrolling_text {
         font-size: 12px;
     }
     .mdpick .md_item .item p {
-        font-size: 10px;
+        display: none;
     }
     .mdpick .md_wrap .md_right .inner .md_item .desc .icon img {
         display: none;
