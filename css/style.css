@@ -1499,6 +1499,9 @@ body.scrolled .scrolling_text {
     .best .swiper-slide .cont .price {
         font-size: 12px;
     }
+    .mdpick .md_wrap video {
+        display: none;
+    }
     .collection .item_wrap {
         flex-direction: column;
         align-items: center;
