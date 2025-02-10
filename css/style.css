@@ -1501,6 +1501,8 @@ body.scrolled .scrolling_text {
     }
     .mdpick .md_wrap .md_left video {
         width: 100%;
+        max-height: 250px;
+        object-fit: cover;
     }
     .mdpick .md_item .item .title a {
         font-size: 12px;
