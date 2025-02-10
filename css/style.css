@@ -1502,13 +1502,23 @@ body.scrolled .scrolling_text {
     .mdpick .md_wrap .md_left video {
         width: 100%;
     }
+    .mdpick .md_item .item .title a {
+        font-size: 12px;
+    }
+    .mdpick .md_item .item p {
+        display: none;
+    }
+    .mdpick .md_wrap .md_right .inner .md_item .desc .icon img {
+        width: 20%;
+        height: auto;
+        max-width: 30px;
+        margin-right: 5px;
+    }
     .collection .item_wrap {
         flex-direction: column;
         align-items: center;
         gap: 20px;
     }
-
-
     #footer .ft_company {
         border-top: 1px solid #000;
     }
