@@ -1506,13 +1506,10 @@ body.scrolled .scrolling_text {
         font-size: 12px;
     }
     .mdpick .md_item .item p {
-        display: none;
+        font-size: 10px;
     }
     .mdpick .md_wrap .md_right .inner .md_item .desc .icon img {
-        width: 20%;
-        height: auto;
-        max-width: 30px;
-        margin-right: 5px;
+       display: none;
     }
     .collection .item_wrap {
         flex-direction: column;
