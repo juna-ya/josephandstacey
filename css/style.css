@@ -1499,6 +1499,9 @@ body.scrolled .scrolling_text {
     .best .swiper-slide .cont .price {
         font-size: 12px;
     }
+    .mdpick {
+        margin-top: 100px;
+    }
     .mdpick .md_wrap .md_left {
         display: none;
     }
@@ -1517,6 +1520,9 @@ body.scrolled .scrolling_text {
     .mdpick .inner .md_item .item .desc .price {
         margin-left: 0;
         font-size: 13px;
+    }
+    .collection {
+        margin-top: 50px;
     }
     .collection .item_wrap {
         flex-direction: column;
