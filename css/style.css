@@ -1509,7 +1509,14 @@ body.scrolled .scrolling_text {
         font-size: 10px;
     }
     .mdpick .md_wrap .md_right .inner .md_item .desc .icon img {
-       display: none;
+        display: none;
+    }
+    .mdpick .inner .md_item .item .desc {
+        margin-top: 10px;
+    }
+    .mdpick .inner .md_item .item .desc .price {
+        margin-left: 0;
+        font-size: 13px;
     }
     .collection .item_wrap {
         flex-direction: column;
