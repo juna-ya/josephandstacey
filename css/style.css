@@ -1176,7 +1176,7 @@ body.scrolled .scrolling_text {
         text-align: center;
     }
 
-    .mdpick .md_wrap video {
+    .mdpick .md_wrap .md_left video {
         width: 100%;
     }
 
@@ -1418,7 +1418,7 @@ body.scrolled .scrolling_text {
         text-align: center;
     }
 
-    .mdpick .md_wrap video {
+    .mdpick .md_wrap .md_left video {
         width: 100%;
     }
     .mdpick .md_wrap .md_right .inner .md_item .image img {
@@ -1500,7 +1500,7 @@ body.scrolled .scrolling_text {
         font-size: 12px;
     }
     .mdpick .md_wrap .md_left video {
-        display: none;
+        width: 100%;
     }
     .collection .item_wrap {
         flex-direction: column;
